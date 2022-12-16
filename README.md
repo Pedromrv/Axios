@@ -1,47 +1,47 @@
 ## Axios
 
-Axios is a **promise-based** HTTP client for JavaScript which can be used in the frontend application (in browsers) and the Node backend. There are no limitations where and how to use Axios - from plain JavaScript applications to complex frontend frameworks (as you will see soon, we will be using Axios heavily when working with React). Using Axios in Node backend is possible, as you will learn how to do it now.
+Axios es un cliente HTTP **basado en promesas** para JavaScript que puede usarse en la aplicación frontend (en navegadores) y en el backend Node. No hay limitaciones sobre dónde y cómo usar Axios - desde aplicaciones JavaScript simples hasta frameworks frontend complejos (como verás pronto, usaremos Axios en gran medida cuando trabajemos con React). Usar Axios en el backend de Node es posible, como aprenderás a hacer ahora.
 
-### Features
+### Características
 
-As stated in the official [axios](https://github.com/axios/axios) GitHub page, here is the full list of main features:
+Como se indica en la página oficial [axios](https://github.com/axios/axios) GitHub, aquí está la lista completa de las principales características:
 
--   Make [XMLHttpRequests](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) from the browser,
--   make `HTTP` requests from [Node.js](https://nodejs.org/api/http.html),
--   supports the [Promise API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise),
--   intercept requests and responses,
--   transform requests and responses data,
--   cancel requests,
--   automatically transforms JSON into JS objects,
--   client-side support for protecting against [XSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
+- Hacer [XMLHttpRequests](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) desde el navegador,
+- hacer peticiones `HTTP` desde [Node.js](https://nodejs.org/api/http.html),
+- soporta la [Promise API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise),
+- interceptar peticiones y respuestas,
+- transformar datos de peticiones y respuestas,
+- cancelar peticiones,
+- transforma automáticamente JSON en objetos JS,
+- soporte del lado del cliente para protección contra [XSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-## Installation
+## Instalación
 
-Axios can be installed with **NPM** or added through a **CDN**.
+Axios puede ser instalado con **NPM** o añadido a través de una **CDN**.
 
-Since we are creating a simple page with just **HTML**, **JS** & **CSS** (no **node**) it will be easier and faster for us to use the **CDN** . If we were building a more complex app we would choose the **NPM** version.
+Como estamos creando una página simple con sólo **HTML**, **JS** & **CSS** (sin **nodo**) nos será más fácil y rápido usar el **CDN** . Si estuviéramos creando una aplicación más compleja elegiríamos la versión **NPM**.
 
-**Using CDN**
+**Con CDN**
 
 ```jsx
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 ```
 
-**Using NPM**
+**CON NPM**
 
 ```
 $ npm install axios         
 ```
 
-## Axios calls
+## Llamadas Axios 
 
-### Axios GET call
+### Axios llamada GET 
 
-A standard Axios call for any HTTP request is a method `axios()` that receives a JavaScript object that specifies different options of the request.
+Una llamada Axios estándar para cualquier petición HTTP es un método `axios()` que recibe un objeto JavaScript que especifica diferentes opciones de la petición.
 
-Since **Axios** are Promise based, we need to add the `.then()` to process the response, and the `.catch()` method in case there is an error in the response.
+Dado que **Axios** está basado en Promise, necesitamos añadir el método `.then()` para procesar la respuesta, y el método `.catch()` en caso de que haya un error en la respuesta.
 
-These are the most common options:
+Estas son las opciones más comunes:
 
 ```jsx
 axios({
@@ -57,9 +57,9 @@ axios({
   });
 ```
 
-There are many other options we can configure in the **Axios** requests. You can check all of them in the [official Axios documentation](https://github.com/axios/axios#request-config). Check the official documentation to see the full list of available options.
+Hay muchas otras opciones que podemos configurar en las peticiones de **Axios**. Puedes consultarlas todas en la [documentación oficial de Axios](https://github.com/axios/axios#request-config). Consulta la documentación oficial para ver la lista completa de opciones disponibles.
 
-Mostly, we will be using a bit shorter and cleaner syntax:
+En general, usaremos una sintaxis un poco más corta y limpia:
 
 ```jsx
 axios.get(url)
@@ -68,72 +68,72 @@ axios.get(url)
 ```
 ## API testing
 
-The Internet is filled with free APIs available for developers. Google, YouTube, Yahoo, Instagram, Twitter, Flickr, LinkedIn, and many more huge and famous applications provide an open API to integrate into our platform.
+Internet está repleto de API gratuitas a disposición de los desarrolladores. Google, YouTube, Yahoo, Instagram, Twitter, Flickr, LinkedIn y muchas más aplicaciones enormes y famosas ofrecen una API abierta para integrar en nuestra plataforma.
 
-To demonstrate how Axios actually works, we will use the **[restcountries](https://restcountries.com/) API**.
+Para demostrar cómo funciona Axios, utilizaremos la API **[restcountries](https://restcountries.com/)**.
 
-### The REST COUNTRIES API
+### La API REST COUNTRIES
 
-The [restcountries](https://restcountries.com/) is a REST API created by Faydel Florez and acquired by [apilayer](https://apilayer.com/).
+Restcountries](https://restcountries.com/) es una API REST creada por Faydel Florez y adquirida por [apilayer](https://apilayer.com/).
 
-REST COUNTRIES provides a simple API for getting information about the world’s nations via REST calls. These calls allow users to retrieve data about all available countries or a single country, based on the user’s search query. The API gives information about the country’s currency, its capital, calling code, region, sub-region, ISO 639-1 language, name, or country code.
+REST COUNTRIES proporciona una API sencilla para obtener información sobre las naciones del mundo a través de llamadas REST. Estas llamadas permiten a los usuarios recuperar datos sobre todos los países disponibles o sobre un único país, basándose en la consulta de búsqueda del usuario. La API ofrece información sobre la moneda del país, su capital, código de llamada, región, subregión, idioma ISO 639-1, nombre o código de país.
 
-If we visit [restcountries end points](https://restcountries.com/#api-endpoints-v2-all) we can see which REST endpoints are available for us to use to search for countries.
+Si visitamos [restcountries end points](https://restcountries.com/#api-endpoints-v2-all) podemos ver qué puntos finales REST están disponibles para que los utilicemos en la búsqueda de países.
 
-Some examples are:
+Algunos ejemplos son:
 
--   search by country name: `https://restcountries.com/v2/name/{name}`
--   search by capital city: `https://restcountries.com/v2/capital/{capital}`
--   search by currency: `https://restcountries.com/v2/currency/{currency}`
+-   buscar por nombre de país: `https://restcountries.com/v2/name/{name}`
+-   buscar por capital: `https://restcountries.com/v2/capital/{capital}`
+-   buscar por moneda: `https://restcountries.com/v2/currency/{currency}`
 
-Let’s test this in practice.
+Probémoslo en la práctica.
 
-### API testing through the browser’s navigation bar
+### Pruebas de API a través de la barra de navegación del navegador
 
-If you copy any of the links into the browser’s navigation bar and replace the part within `{}` with real value, you can test any endpoint.
+Si copia cualquiera de los enlaces en la barra de navegación del navegador y sustituye la parte dentro de `{}` por un valor real, podrá probar cualquier endpoint.
 
-After inputting this URL: [https://restcountries.com/v2/name/spain](https://restcountries.com/v2/name/spain), you should see something like this:![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_a8a2c6c5c85922e8b6fce8760da57514.png)
+Después de introducir esta URL [https://restcountries.com/v2/name/spain](https://restcountries.com/v2/name/spain), debería ver algo como esto:![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_a8a2c6c5c85922e8b6fce8760da57514.png)
 
-It might be possible that your browser shows a different and unformatted object. If that happens, try installing the **[JSON Viewer](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en)** extension.
+Es posible que tu navegador muestre un objeto diferente y sin formato. Si eso ocurre, prueba a instalar la extensión **[JSON Viewer](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en)**.
 
 ### Postman
 
-[Postman](https://www.getpostman.com/docs) is a platform that allows us to test Web API requests. We could use it similarly to the browser, which we just demoed with the GET request. However, not just that, we can use any HTTP verb for the request, and we can handle any amount of parameters.
+[Postman](https://www.getpostman.com/docs) es una plataforma que nos permite probar peticiones Web API. Podemos usarlo de forma similar al navegador, del que acabamos de hacer una demostración con la petición GET. Pero no sólo eso, podemos utilizar cualquier verbo HTTP para la petición, y podemos manejar cualquier cantidad de parámetros.
 
-#### Installing Postman
+#### Instalando Postman
 
-Go to [the official website](https://www.getpostman.com/) and download Postman. Make sure you select the right operating system for your computer.
+Ve a [la web oficial](https://www.getpostman.com/) y descarga Postman. Asegúrate de seleccionar el sistema operativo adecuado para tu ordenador.
 
-We can use Postman as a Google Chrome extension too, but we will use the [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) version since it is more intuitive.
+También podemos usar Postman como una extensión de Google Chrome, pero usaremos la versión [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) ya que es más intuitiva.
 
-Alternatively, you can use [Insomnia](https://insomnia.rest/) which is a platform very similar to Postman.
+Alternativamente, puedes usar [Insomnia](https://insomnia.rest/) que es una plataforma muy similar a Postman.
 
-#### API testing with Postman - the GET request
+#### API testing con Postman - la petición GET 
 
-Open Postman. You should see an interface similar to this:
+Abra Postman. Debería ver una interfaz similar a ésta:
 
 ![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_af6eb57129e0e23b8d1f19d31e869e38.png)
 
-For now, we will focus on the navigation bar.
+Por ahora, nos centraremos en la barra de navegación.
 
-The _navigation bar_ simulates the browser’s navigation bar:
+La _barra de navegación_ simula la barra de navegación del navegador:
 
--   **_select_** input on the left indicates the HTTP verb you want to use in the request,
--   **_params_ button** on the right is for specifying parameters in the request. If we use GET HTTP verb, it will add the parameters in the URL’s _query string_,
--   **_save_** button allows you to save the request, in case you want to repeat the same request. This is useful when you are introducing the same data repeatedly,
--   **_send_** button will create the request and send it.
+- **_select_** a la izquierda indica el verbo HTTP que desea utilizar en la petición,
+- el botón **_params_** de la derecha sirve para especificar los parámetros de la petición. Si utilizamos el verbo HTTP GET, añadirá los parámetros en la _query string_ de la URL,
+- El botón __save_** permite guardar la petición, por si se quiere repetir la misma petición. Esto es útil cuando se introducen los mismos datos repetidamente,
+- el botón **_send_** creará la petición y la enviará.
 
-Let’s input the request to search by a country name. We will use _spain_ as an example.
+Introduzcamos la solicitud de búsqueda por el nombre de un país. Utilizaremos _spain_ como ejemplo.
 
-When the _send_ button is clicked, Postman will display the information related to the response in the panel below.
+Cuando se pulse el botón _enviar_, Postman mostrará la información relacionada con la respuesta en el panel inferior.
 
 ![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_51323792b25e8a6a053836c3c77b45fc.png)
 
-In the same way, as with REST Countries API, you can try to get the data from any other API and its available endpoints. Super easy, right? 
+Del mismo modo que con la API REST Countries, puede intentar obtener los datos de cualquier otra API y sus puntos finales disponibles. Súper fácil, ¿verdad? 
 
-### Making a GET request to a REST API
+### Haciendo una petición GET a una REST API
 
-Let’s demo how to make an Axios GET request. We won’t be using the Node environment to demo, but a simplified approach with pure JavaScript. Go ahead and create a folder named `rest-countries` and inside create two files: `index.html` and `index.js`.
+Hagamos una demostración de cómo hacer una petición GET a Axios. No usaremos el entorno Node para la demostración, sino un enfoque simplificado con JavaScript puro. Crea una carpeta llamada `rest-countries` y dentro crea dos archivos: `index.html` y `index.js`.
 
 ```
 $ mkdir rest-countries
@@ -146,7 +146,7 @@ rest-countries
    └── index.js
 ```
 
-Now add this code to `index.html`.
+Ahora añade este código a `index.html`.
 
 ```html
 <!-- index.html -->
@@ -180,9 +180,9 @@ Now add this code to `index.html`.
 </html>
 ```
 
-Notice that we did not put the input with the _id_ _country-name-input_ inside a `form` element. The reason why is because the default behavior of the form element is to reload the page on submit. We will address later how to avoid this while keeping with the _W3C_ standard.
+Observe que no hemos puesto la entrada con el _id_ _country-name-input_ dentro de un elemento `form`. La razón es que el comportamiento por defecto del elemento formulario es recargar la página al enviar. Más adelante veremos cómo evitarlo respetando el estándar _W3C_.
 
-And now add some code to the `index.js`:
+Y ahora añade algo de código al `index.js`:
 
 ```jsx
 // index.js
@@ -204,13 +204,13 @@ document.getElementById('get-country-btn').addEventListener('click', () => {
 });
 
 ```
-If you input **Spain** and click the button, you will see this array of object(s) in the browser’s console:
+Si introduce **España** y pulsa el botón, verá esta matriz de objeto(s) en la consola del navegador:
 
 ![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_4920fa417b7723669dedb2757e7a088e.png)
 
-The cool thing about Axios is that **there is no page reload!** If you keep changing the countries. You will get the data without refreshing the page. As a reminder, after every HTTP request, the page is refreshed with a full new page to render. If you wish to test it, know that is it would be refreshed, the console would be empty.
+Lo bueno de Axios es que **no hay recarga de página!** Si sigues cambiando los países. Obtendrás los datos sin refrescar la página. Como recordatorio, después de cada petición HTTP, la página se actualiza con una nueva página completa. Si deseas probarlo, debes saber que cuando se actualice, la consola estará vacía.
 
-Let’s do an extra step and display the data in the browser, not just in the console. Update the code in `index.js` with the following:
+Hagamos un paso extra y mostremos los datos en el navegador, no sólo en la consola. Actualiza el código en `index.js` con lo siguiente:
 
 ```jsx
 // index.js
@@ -236,4 +236,4 @@ document.getElementById('get-country-btn').addEventListener('click', () => {
 });
 ```
 
-With just a dash of DOM manipulation knowledge, we were able to display in the browser the received data from the API. Isn’t this amazing! Opens up so many opportunities for reusing cool APIs.
+Con sólo una pizca de conocimientos de manipulación del DOM, fuimos capaces de mostrar en el navegador los datos recibidos de la API. ¿No es increíble? Abre tantas oportunidades para reutilizar APIs geniales.
